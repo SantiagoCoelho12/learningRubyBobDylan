@@ -8,8 +8,6 @@ spotify_api = Spotify.new
 disc_file = ENV['disc_file']
 lines = fr.read(disc_file)
 
-spotify_api.get_album_cover('Bob Dylan - 1974 Planet Waves')
-
 hash_album = {}
 lines.each do |line|
     data = line.split(' ',2)

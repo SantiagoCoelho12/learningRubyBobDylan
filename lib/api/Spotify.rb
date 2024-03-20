@@ -37,9 +37,11 @@ class Spotify
     def get_album_cover(name)
         query = "Bob Dylan - #{name}"
         uri = URI("#{@url}/search?type=album&q=#{query}")
-        request = Net::HTTP::Get.new(uri)
+
+        request = Net::HTTP::Get.new(uri) # encapsular get y post?
         request['Authorization'] = "Bearer #{@token}"
         response = do_request(uri,request)
+
         data = JSON.parse(response.body)
         first_data = data['albums']['items'].first
         first_data['images'].first['url']
